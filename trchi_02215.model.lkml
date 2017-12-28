@@ -28,3 +28,35 @@ explore: script {
 }
 
 explore: users {}
+
+explore: udf {
+  label: "Universal Data Format"
+  join: ppl{
+    type: left_outer
+    sql_on: ${udf.ppl_id} = ${ppl.ppl_id} ;;
+    relationship: one_to_many
+    view_label: "People "
+  }
+  join: obj{
+    type: left_outer
+    sql_on: ${udf.obj_id} = ${obj.obj_id} ;;
+    relationship: one_to_many
+    view_label: "Object"
+  }
+  join: loc{
+    type: left_outer
+    sql_on: ${udf.loc_id} = ${loc.loc_id} ;;
+    relationship: one_to_many
+  }
+  join: evt{
+    type: left_outer
+    sql_on: ${udf.evt_id} = ${evt.evt_id} ;;
+    relationship: one_to_many
+  }
+  join: src{
+    type: left_outer
+    sql_on: ${udf.src_id} = ${src.src_id} ;;
+    relationship: one_to_many
+  }
+
+}
