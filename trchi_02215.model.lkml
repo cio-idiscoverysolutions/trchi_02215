@@ -58,5 +58,29 @@ explore: udf {
     sql_on: ${udf.src_id} = ${src.src_id} ;;
     relationship: one_to_many
   }
+  join: ppl_attribute{
+    from: attribute
+    type: left_outer
+    sql_on: ${ppl.ppl_id} = ${ppl_attribute.ppl_id} ;;
+    relationship: one_to_many
+  }
 
+  join: obj_attribute{
+    from: attribute
+    type: left_outer
+    sql_on: ${obj.obj_id} = ${obj_attribute.obj_id} ;;
+    relationship: one_to_many
+  }
+  join: loc_attribute{
+    from: attribute
+    type: left_outer
+    sql_on: ${loc.loc_id} = ${loc_attribute.loc_id} ;;
+    relationship: one_to_many
+  }
+  join: evt_attribute{
+    from: attribute
+    type: left_outer
+    sql_on: ${evt_attribute.evt_id} = ${evt_attribute.evt_id} ;;
+    relationship: one_to_many
+  }
 }
