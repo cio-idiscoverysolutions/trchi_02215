@@ -64,7 +64,6 @@ explore: udf {
     sql_on: ${ppl.ppl_id} = ${ppl_attribute.ppl_id} ;;
     relationship: one_to_many
   }
-
   join: obj_attribute{
     from: attribute
     type: left_outer
@@ -81,6 +80,11 @@ explore: udf {
     from: attribute
     type: left_outer
     sql_on: ${evt_attribute.evt_id} = ${evt_attribute.evt_id} ;;
+    relationship: one_to_many
+  }
+  join: cda_results{
+    type: left_outer
+    sql_on: ${udf.udf_id} = ${cda_results.udf_id} ;;
     relationship: one_to_many
   }
 }
