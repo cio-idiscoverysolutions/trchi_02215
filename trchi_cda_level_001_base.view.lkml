@@ -35,8 +35,17 @@ view: trchi_cda_level_001_base {
     sql: ${TABLE}.obj_id ;;
   }
 
-  dimension: date_beg_source {
-    type: date_time
+  dimension_group: date_beg_source {
+    type: time
+    timeframes: [
+      raw,
+      time,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
     sql: ${TABLE}.date_beg_source ;;
   }
 
@@ -78,7 +87,13 @@ view: trchi_cda_level_001_base {
   set: detail {
     fields: [
       obj_id,
-      date_beg_source,
+      date_beg_source_date,
+      date_beg_source_month,
+      date_beg_source_quarter,
+      date_beg_source_raw,
+      date_beg_source_time,
+      date_beg_source_week,
+      date_beg_source_year,
       author,
       custodian,
       num_attachments,
