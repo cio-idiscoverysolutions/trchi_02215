@@ -1,7 +1,7 @@
 view: trchi_cda_level_001_base {
   derived_table: {
     sql: select  a.obj_id
-        , a.date_beg_source
+        , a.date_beg_source as date_beg_source
         , c.description as author
         , d.description as custodian
         , e.numeric_value as num_attachments
@@ -36,7 +36,7 @@ view: trchi_cda_level_001_base {
   }
 
   dimension: date_beg_source {
-    type: string
+    type: date_time
     sql: ${TABLE}.date_beg_source ;;
   }
 
