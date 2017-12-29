@@ -29,6 +29,11 @@ explore: script {
 
 explore: users {}
 
+
+explore: trchi_cda_level_001_base {
+  from: trchi_cda_level_001_base
+}
+
 explore: udf {
   label: "Universal Data Format"
   join: ppl{
