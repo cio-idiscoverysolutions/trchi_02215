@@ -19,6 +19,8 @@ view: trchi_cda_level_001_base {
         left join (select obj_id from cda.cda_results where cda_id = 5) g on a.obj_id = g.obj_id
         left join (select obj_id from cda.cda_results where cda_id = 4) h on a.obj_id = h.obj_id
         left join dim.obj i on a.obj_id = i.obj_id
+      where (d.description = 'Turgeon_Jacques' and c.description = 'Jacques Turgeon, PhD')
+        or  (d.description = 'Michaud_Veronique' and c.description = 'Veronique Michaud, PhD')
       group by  a.obj_id
         , a.date_beg_source
         , c.description
