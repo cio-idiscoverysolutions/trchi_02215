@@ -9,6 +9,7 @@ view: trchi_cda_level_001_base {
         , max(case when f.obj_id is not null then 1 else 0 end) as personal_domain_ind
         , max(case when g.obj_id is not null then 1 else 0 end) as external_domain_ind
         , max(case when h.obj_id is not null then 1 else 0 end) as outside_working_hours_ind
+        , i.name as control_number
       from  udf.udf a
         left join (select obj_id from cda.cda_results where cda_id = 1) b on a.obj_id = b.obj_id
         left join spt.attribute c on a.obj_id = c.obj_id and c.name = 'Author'
@@ -17,22 +18,30 @@ view: trchi_cda_level_001_base {
         left join (select obj_id from cda.cda_results where cda_id = 3) f on a.obj_id = f.obj_id
         left join (select obj_id from cda.cda_results where cda_id = 5) g on a.obj_id = g.obj_id
         left join (select obj_id from cda.cda_results where cda_id = 4) h on a.obj_id = h.obj_id
+        left join dim.obj i on a.obj_id = i.obj_id
       group by  a.obj_id
         , a.date_beg_source
         , c.description
         , d.description
         , e.numeric_value
+        , i.name
        ;;
   }
+
+  dimension: obj_id {
+    type: string
+    sql: ${TABLE}.obj_id ;;
+  }
+
 
   measure: count {
     type: count
     drill_fields: [detail*]
   }
 
-  dimension: obj_id {
+  dimension: control_number {
     type: string
-    sql: ${TABLE}.obj_id ;;
+    sql: ${TABLE}.control_number ;;
   }
 
   dimension_group: date_beg_source {
@@ -100,7 +109,8 @@ view: trchi_cda_level_001_base {
       attachment_ind,
       personal_domain_ind,
       external_domain_ind,
-      outside_working_hours_ind
+      outside_working_hours_ind,
+      control_number
     ]
   }
 }
