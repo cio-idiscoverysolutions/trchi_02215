@@ -1,4 +1,5 @@
 view: trchi_cda_level_001_base {
+  suggestions: yes
   derived_table: {
     sql: select  a.obj_id
         , a.date_beg_source as date_beg_source
