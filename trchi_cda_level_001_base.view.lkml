@@ -68,6 +68,7 @@ view: trchi_cda_level_001_base {
   dimension: custodian {
     type: string
     sql: ${TABLE}.custodian ;;
+    suggestions: ["Michaud_Veronique", "Turgeon_Jacques"]
   }
 
   dimension: num_attachments {
