@@ -39,7 +39,6 @@ view: trchi_cda_level_001_top_domains {
       left join spt.attribute i on a.obj_id = i.obj_id and i.name = 'Parent Date'
       where (d.description = 'Turgeon_Jacques' and c.description = 'Jacques Turgeon, PhD')
         or  (d.description = 'Michaud_Veronique' and c.description = 'Veronique Michaud, PhD')
-      order by a.obj_id
        ;;
   }
 
