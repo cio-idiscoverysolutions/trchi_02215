@@ -34,6 +34,11 @@ explore: trchi_cda_level_001_base {
   from: trchi_cda_level_001_base
 }
 
+explore: trchi_cda_level_001_top_domains {
+  from: trchi_cda_level_001_top_domains
+}
+
+
 explore: udf {
   label: "Universal Data Format"
   join: ppl{
