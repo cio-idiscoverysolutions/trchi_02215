@@ -98,7 +98,7 @@ view: trchi_cda_level_001_top_domains {
   }
 
   dimension: beg_date {
-    type: string
+    type: date
     sql: ${TABLE}.beg_date ;;
   }
 
